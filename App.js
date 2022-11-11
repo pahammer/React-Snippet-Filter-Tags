@@ -31,7 +31,7 @@ function FilterableListComponent({ initialList, filterOnComponent }) {
 	const filteredList =  initialList.filter((item) => selectedTags.includes(item.tag))
 
 	// callback function handled when a user toggles a FilterButton
-    const handleFilterClick = (tag) => {
+    const handleToggleFilter = (tag) => {
         if (selectedTags.includes(tag)){
             setSelectedTags(selectedTags.filter((item) => item !== tag))
         }
@@ -45,7 +45,7 @@ function FilterableListComponent({ initialList, filterOnComponent }) {
         <div className="flex flex-row space-x-1">
             {initialTags.map((tag, tagIdx) => (
                 <FilterButton key={tagIdx} className="p-2 bg-purple-100 rounded-md cursor:pointer" 
-                onClick={() => handleFilterClick(tag)} title={tag} isSelected={selectedTags.includes(tag)}/>
+                onClick={() => handleToggleFilter(tag)} title={tag} isSelected={selectedTags.includes(tag)}/>
             ))}
         </div>
         <div className="flex flex-col space-y-1 p-2">
